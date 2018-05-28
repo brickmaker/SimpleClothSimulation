@@ -1,0 +1,1427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Assimp"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="clang"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake-modules\;CMake Files\code\;CMake Files\tools\;CMake Files\tools\assimp_cmd\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="uninstall">
+				<Option working_dir="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 uninstall"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="assimp">
+				<Option output="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/code/libassimp.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/code"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DASSIMP_BUILD_BOOST_WORKAROUND"/>
+					<Add option="-DASSIMP_BUILD_NO_OWN_ZLIB"/>
+					<Add option="-DASSIMP_BUILD_DLL_EXPORT"/>
+					<Add directory="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release"/>
+					<Add directory="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include"/>
+					<Add directory="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BoostWorkaround"/>
+					<Add directory="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/../contrib/unzip"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/code/Makefile&quot;  VERBOSE=1 assimp"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/code/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/code/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/code/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="assimp/fast">
+				<Option output="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/code/libassimp.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/code"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DASSIMP_BUILD_BOOST_WORKAROUND"/>
+					<Add option="-DASSIMP_BUILD_NO_OWN_ZLIB"/>
+					<Add option="-DASSIMP_BUILD_DLL_EXPORT"/>
+					<Add directory="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release"/>
+					<Add directory="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include"/>
+					<Add directory="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BoostWorkaround"/>
+					<Add directory="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/../contrib/unzip"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/code/Makefile&quot;  VERBOSE=1 assimp/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/code/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/code/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/code/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="assimp_cmd">
+				<Option output="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/tools/assimp_cmd/assimp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/tools/assimp_cmd"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DASSIMP_BUILD_BOOST_WORKAROUND"/>
+					<Add option="-DASSIMP_BUILD_NO_OWN_ZLIB"/>
+					<Add directory="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release"/>
+					<Add directory="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include"/>
+					<Add directory="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BoostWorkaround"/>
+					<Add directory="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/tools/assimp_cmd/Makefile&quot;  VERBOSE=1 assimp_cmd"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/tools/assimp_cmd/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/tools/assimp_cmd/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/tools/assimp_cmd/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="assimp_cmd/fast">
+				<Option output="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/tools/assimp_cmd/assimp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/tools/assimp_cmd"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DASSIMP_BUILD_BOOST_WORKAROUND"/>
+					<Add option="-DASSIMP_BUILD_NO_OWN_ZLIB"/>
+					<Add directory="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release"/>
+					<Add directory="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include"/>
+					<Add directory="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BoostWorkaround"/>
+					<Add directory="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/tools/assimp_cmd/Makefile&quot;  VERBOSE=1 assimp_cmd/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/tools/assimp_cmd/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/tools/assimp_cmd/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-build-release/tools/assimp_cmd/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/3DSConverter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/3DSHelper.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/3DSLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/3DSLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ACLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ACLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ASELoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ASELoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ASEParser.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ASEParser.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/Assimp.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/AssimpCExport.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/AssimpPCH.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/AssimpPCH.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/B3DImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/B3DImporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BVHLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BVHLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BaseImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BaseImporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BaseProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BaseProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/Bitmap.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/Bitmap.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BlenderBMesh.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BlenderBMesh.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BlenderDNA.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BlenderDNA.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BlenderDNA.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BlenderIntermediate.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BlenderLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BlenderLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BlenderModifier.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BlenderModifier.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BlenderScene.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BlenderScene.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BlenderSceneGen.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BlenderTessellator.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BlenderTessellator.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BlobIOSystem.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BoostWorkaround/boost/foreach.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BoostWorkaround/boost/format.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BoostWorkaround/boost/make_shared.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BoostWorkaround/boost/math/common_factor_rt.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BoostWorkaround/boost/scoped_array.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BoostWorkaround/boost/scoped_ptr.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BoostWorkaround/boost/shared_array.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BoostWorkaround/boost/shared_ptr.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BoostWorkaround/boost/static_assert.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/BoostWorkaround/boost/tuple/tuple.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ByteSwap.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/CInterfaceIOWrapper.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/COBLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/COBLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/COBScene.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/CSMLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/CSMLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/CalcTangentsProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/CalcTangentsProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ColladaExporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ColladaExporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ColladaHelper.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ColladaLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ColladaLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ColladaParser.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ColladaParser.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ComputeUVMappingProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ComputeUVMappingProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ConvertToLHProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ConvertToLHProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/DXFHelper.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/DXFLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/DXFLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/DeboneProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/DeboneProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/DefaultIOStream.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/DefaultIOStream.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/DefaultIOSystem.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/DefaultIOSystem.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/DefaultLogger.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/DefaultProgressHandler.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/Exporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXAnimation.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXBinaryTokenizer.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXCompileConfig.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXConverter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXConverter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXDeformer.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXDocument.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXDocument.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXDocumentUtil.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXDocumentUtil.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXImportSettings.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXImporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXMaterial.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXMeshGeometry.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXModel.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXNodeAttribute.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXParser.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXParser.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXProperties.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXProperties.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXTokenizer.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXTokenizer.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXUtil.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FBXUtil.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FileLogStream.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FindDegenerates.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FindDegenerates.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FindInstancesProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FindInstancesProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FindInvalidDataProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FindInvalidDataProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FixNormalsStep.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/FixNormalsStep.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/GenFaceNormalsProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/GenFaceNormalsProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/GenVertexNormalsProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/GenVertexNormalsProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/GenericProperty.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/HMPFileData.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/HMPLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/HMPLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/HalfLifeFileData.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/Hash.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/IFCBoolean.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/IFCCurve.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/IFCGeometry.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/IFCLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/IFCLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/IFCMaterial.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/IFCOpenings.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/IFCProfile.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/IFCReaderGen.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/IFCReaderGen.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/IFCUtil.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/IFCUtil.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/IFF.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/IRRLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/IRRLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/IRRMeshLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/IRRMeshLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/IRRShared.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/IRRShared.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/Importer.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/Importer.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ImporterRegistry.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ImproveCacheLocality.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ImproveCacheLocality.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/JoinVerticesProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/JoinVerticesProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/LWOAnimation.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/LWOAnimation.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/LWOBLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/LWOFileData.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/LWOLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/LWOLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/LWOMaterial.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/LWSLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/LWSLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/LimitBoneWeightsProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/LimitBoneWeightsProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/LineSplitter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/LogAux.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MD2FileData.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MD2Loader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MD2Loader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MD2NormalTable.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MD3FileData.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MD3Loader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MD3Loader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MD4FileData.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MD5Loader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MD5Loader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MD5Parser.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MD5Parser.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MDCFileData.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MDCLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MDCLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MDCNormalTable.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MDLDefaultColorMap.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MDLFileData.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MDLLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MDLLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MDLMaterialLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MS3DLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MS3DLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MakeVerboseFormat.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MakeVerboseFormat.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MaterialSystem.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MaterialSystem.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/MemoryIOWrapper.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/NDOLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/NDOLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/NFFLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/NFFLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/OFFLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/OFFLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ObjExporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ObjExporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ObjFileData.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ObjFileImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ObjFileImporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ObjFileMtlImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ObjFileMtlImporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ObjFileParser.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ObjFileParser.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ObjTools.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/OgreBinarySerializer.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/OgreBinarySerializer.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/OgreImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/OgreImporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/OgreMaterial.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/OgreParsingUtils.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/OgreStructs.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/OgreStructs.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/OgreXmlSerializer.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/OgreXmlSerializer.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/OptimizeGraph.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/OptimizeGraph.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/OptimizeMeshes.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/OptimizeMeshes.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ParsingUtils.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/PlyExporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/PlyExporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/PlyLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/PlyLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/PlyParser.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/PlyParser.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/PolyTools.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/PostStepRegistry.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/PretransformVertices.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/PretransformVertices.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ProcessHelper.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ProcessHelper.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/Profiler.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/Q3BSPFileData.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/Q3BSPFileImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/Q3BSPFileImporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/Q3BSPFileParser.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/Q3BSPFileParser.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/Q3BSPZipArchive.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/Q3BSPZipArchive.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/Q3DLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/Q3DLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/RawLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/RawLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/RemoveComments.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/RemoveComments.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/RemoveRedundantMaterials.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/RemoveRedundantMaterials.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/RemoveVCProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/RemoveVCProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/SGSpatialSort.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/SGSpatialSort.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/SMDLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/SMDLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/STEPFile.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/STEPFileEncoding.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/STEPFileEncoding.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/STEPFileReader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/STEPFileReader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/STLExporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/STLExporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/STLLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/STLLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/SceneCombiner.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/SceneCombiner.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ScenePreprocessor.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ScenePreprocessor.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ScenePrivate.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/SkeletonMeshBuilder.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/SkeletonMeshBuilder.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/SmoothingGroups.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/SortByPTypeProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/SortByPTypeProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/SpatialSort.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/SpatialSort.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/SplitByBoneCountProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/SplitByBoneCountProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/SplitLargeMeshes.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/SplitLargeMeshes.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/StandardShapes.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/StandardShapes.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/StdOStreamLogStream.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/StreamReader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/StringComparison.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/Subdivision.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/Subdivision.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/TargetAnimation.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/TargetAnimation.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/TerragenLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/TerragenLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/TextureTransform.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/TextureTransform.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/TinyFormatter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/TriangulateProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/TriangulateProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/UnrealLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/UnrealLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ValidateDataStructure.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/ValidateDataStructure.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/Vertex.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/VertexTriangleAdjacency.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/VertexTriangleAdjacency.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/Win32DebugLogStream.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/XFileHelper.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/XFileImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/XFileImporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/XFileParser.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/XFileParser.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/XGLLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/XGLLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/fast_atof.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/irrXMLWrapper.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/qnan.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/ConvertUTF/ConvertUTF.c">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/ConvertUTF/ConvertUTF.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/clipper/clipper.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/clipper/clipper.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/irrXML/CXMLReaderImpl.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/irrXML/heapsort.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/irrXML/irrArray.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/irrXML/irrString.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/irrXML/irrTypes.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/irrXML/irrXML.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/irrXML/irrXML.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/poly2tri/poly2tri/common/shapes.cc">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/poly2tri/poly2tri/common/shapes.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/poly2tri/poly2tri/common/utils.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/poly2tri/poly2tri/sweep/advancing_front.cc">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/poly2tri/poly2tri/sweep/advancing_front.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/poly2tri/poly2tri/sweep/cdt.cc">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/poly2tri/poly2tri/sweep/cdt.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/poly2tri/poly2tri/sweep/sweep.cc">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/poly2tri/poly2tri/sweep/sweep.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/poly2tri/poly2tri/sweep/sweep_context.cc">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/poly2tri/poly2tri/sweep/sweep_context.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/unzip/crypt.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/unzip/ioapi.c">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/unzip/ioapi.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/unzip/unzip.c">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/contrib/unzip/unzip.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/Compiler/poppack1.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/Compiler/pstdint.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/Compiler/pushpack1.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/DefaultLogger.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/Exporter.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/IOStream.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/IOSystem.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/Importer.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/LogStream.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/Logger.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/NullLogger.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/ProgressHandler.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/ai_assert.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/anim.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/camera.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/cexport.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/cfileio.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/cimport.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/color4.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/color4.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/config.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/defs.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/importerdesc.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/light.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/material.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/material.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/matrix3x3.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/matrix3x3.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/matrix4x4.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/matrix4x4.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/mesh.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/metadata.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/postprocess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/quaternion.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/quaternion.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/scene.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/texture.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/types.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/vector2.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/vector2.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/vector3.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/vector3.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/include/assimp/version.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/tools/assimp_cmd/CompareDump.cpp">
+			<Option target="assimp_cmd"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/tools/assimp_cmd/Export.cpp">
+			<Option target="assimp_cmd"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/tools/assimp_cmd/ImageExtractor.cpp">
+			<Option target="assimp_cmd"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/tools/assimp_cmd/Info.cpp">
+			<Option target="assimp_cmd"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/tools/assimp_cmd/Main.cpp">
+			<Option target="assimp_cmd"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/tools/assimp_cmd/Main.h">
+			<Option target="assimp_cmd"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/tools/assimp_cmd/WriteDumb.cpp">
+			<Option target="assimp_cmd"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/tools/assimp_cmd/assimp_cmd.rc">
+			<Option target="assimp_cmd"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/tools/assimp_cmd/resource.h">
+			<Option target="assimp_cmd"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/revision.h.in">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/assimp.pc.in">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/assimp-config.cmake.in">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/assimp-config-version.cmake.in">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-modules/PrecompiledHeader.cmake">
+			<Option virtualFolder="CMake Files\cmake-modules\"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-modules/cmake_uninstall.cmake.in">
+			<Option virtualFolder="CMake Files\cmake-modules\"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-modules/FindZLIB.cmake">
+			<Option virtualFolder="CMake Files\cmake-modules\"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/cmake-modules/FindPkgMacros.cmake">
+			<Option virtualFolder="CMake Files\cmake-modules\"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/code/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\code\"/>
+		</Unit>
+		<Unit filename="/Users/brickmaker/CLionProjects/cs148opengl-public/external/assimp/tools/assimp_cmd/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tools\assimp_cmd\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
