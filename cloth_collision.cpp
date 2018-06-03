@@ -47,6 +47,7 @@ const int POINTS_NUM = (NUM_X + 1) * (NUM_Y + 1);
 const glm::vec3 BALL_POS = glm::vec3(0.0f, 1.5f, 0.0f);
 const float BALL_RADIUS = 1.0f;
 const glm::vec3 BALL_ROTATE_SPEED = glm::vec3(0.0f, 10.0f, 0.0f);
+//const glm::vec3 BALL_ROTATE_SPEED = glm::vec3(0.0f, 0.0f, 0.0f);
 
 // Springs
 const float K_S_STRUCT = 0.5f;
@@ -385,8 +386,11 @@ void computeForces() {
             glm::vec3 normal = glm::normalize(BALL_POS - vertices[i]);
             glm::vec3 r = glm::vec3(vertices[i].x, 0, vertices[i].z);
             glm::vec3 ballTangentSpeed = glm::cross(BALL_ROTATE_SPEED, r);
-            glm::vec3 pressure = forces[i] - glm::dot(forces[i], normal);
-            glm::vec3 friction = glm::length(pressure) * FRACTION * glm::normalize(ballTangentSpeed - velocities[i]);
+//            glm::vec3 ballTangentSpeed = glm::vec3(0);
+            glm::vec3 pressure = normal * glm::dot(forces[i], normal);
+            glm::vec3 vertexSpeed = velocities[i] + normal * glm::dot(velocities[i], normal);
+//            glm::vec3 vertexSpeed = velocities[i];
+            glm::vec3 friction = glm::length(pressure) * FRACTION * glm::normalize(ballTangentSpeed - vertexSpeed);
             forces[i] += friction;
         }
     }
