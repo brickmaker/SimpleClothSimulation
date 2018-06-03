@@ -13,7 +13,7 @@
 
 using namespace std;
 
-const float EPSILON = 0.05f;
+const float EPSILON = 0.02f;
 
 // OpenGL Settings
 const int WINDOW_WIDTH = 800;
@@ -42,12 +42,13 @@ glm::vec3 rightDirection, viewDirection;
 BVH *BVHTree;
 
 // Cloth
-const int NUM_X = 20, NUM_Y = 20;
+const int NUM_X = 40, NUM_Y = 40;
 const int POINTS_NUM = (NUM_X + 1) * (NUM_Y + 1);
 
 // BALL
 const glm::vec3 BALL_POS = glm::vec3(0.0f, 1.5f, 0.0f);
-const float BALL_RADIUS = .5f;
+const float BALL_RADIUS = 1.0f;
+const glm::vec3 BALL_ROTATE_SPEED = glm::vec3(0.0f, 10.0f, 0.0f);
 
 // Springs
 const float K_S_STRUCT = 0.5f;
@@ -61,6 +62,8 @@ const float K_D_BEND = -0.25f;
 const glm::vec3 GRAVITY = glm::vec3(0, -0.00981f, 0);
 const float MASS = 0.5f;
 const float DAMPING = -0.0125f;
+const float FRACTION = 1.5f;
+const float BOUNCH_FACTOR = -0.001f;
 const float DELTA_TIME = 1.0f / 10.0f; // todo: fixed timestep
 
 enum SpringType {
@@ -381,6 +384,18 @@ void computeForces() {
         forces[springs[i].p1] += f;
         forces[springs[i].p2] -= f;
     }
+    // friction
+    // todo: only for ball friction
+    for (int i = 0; i < POINTS_NUM; i++) {
+        if (glm::length(vertices[i] - BALL_POS) < BALL_RADIUS + 2 * EPSILON) {
+            glm::vec3 normal = glm::normalize(BALL_POS - vertices[i]);
+            glm::vec3 r = glm::vec3(vertices[i].x, 0, vertices[i].z);
+            glm::vec3 ballTangentSpeed = glm::cross(BALL_ROTATE_SPEED, r);
+            glm::vec3 pressure = forces[i] - glm::dot(forces[i], normal);
+            glm::vec3 friction = glm::length(pressure) * FRACTION * glm::normalize(ballTangentSpeed - velocities[i]);
+            forces[i] += friction;
+        }
+    }
 }
 
 void integrateExplicitEuler(float dT) {
@@ -405,7 +420,8 @@ void ballCollision() {
             // move it to surface
             glm::vec3 move = glm::normalize(deltaPos) * (BALL_RADIUS + EPSILON - distance);
             vertices[i] += move;
-            velocities[i] = glm::vec3(0);
+//            velocities[i] = glm::vec3(0);
+            velocities[i] += glm::normalize(deltaPos) * glm::dot(velocities[i], -glm::normalize(deltaPos));
         }
     }
 }
