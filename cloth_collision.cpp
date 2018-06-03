@@ -42,7 +42,7 @@ glm::vec3 rightDirection, viewDirection;
 BVH *BVHTree;
 
 // Cloth
-const int NUM_X = 40, NUM_Y = 40;
+const int NUM_X = 20, NUM_Y = 20;
 const int POINTS_NUM = (NUM_X + 1) * (NUM_Y + 1);
 
 // BALL
@@ -263,7 +263,7 @@ void init() {
     fillIndices(indices, NUM_X, NUM_Y);
 
     initSprings();
-    BVHTree = new BVH(0,0,NUM_X+1,NUM_Y+1);
+    BVHTree = new BVH(0,0,NUM_X,NUM_Y);
 
 
 

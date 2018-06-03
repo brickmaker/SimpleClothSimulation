@@ -17,7 +17,7 @@ const double ERROR_BOUND = 0;
 
 int XYtoIndex(int X ,int Y)
 {
-    return X * (NUM_X) + Y;
+    return X * (NUM_X+1) + Y;
 }
 
 Vec3d glmToVec3d(glm::vec3 t)
@@ -27,7 +27,7 @@ Vec3d glmToVec3d(glm::vec3 t)
 
 Vec3d glmToVec3d(int index)
 {
-    return Vec3d(velocities[index].x, velocities[index].y, velocities[index].z);
+    return Vec3d(vertices[index].x, vertices[index].y, vertices[index].z);
 }
 
 Vec3d newVec3d(int index)
@@ -57,7 +57,12 @@ bool Intersect_VF(int x0,int x1,int x2,int x3)
     rootparity::RootParityCollisionTest test(
             verts_old[0], verts_old[1], verts_old[2], verts_old[3],
             verts_new[0], verts_new[1], verts_new[2], verts_new[3], is_edge_edge);
-    return test.run_test();
+    bool ret = test.run_test();
+    if(ret)
+    {
+        //cout<<"VF: "<<x0<<" "<<x1<<" "<<x2<<" "<<x3<<endl;
+    }
+    return ret;
 
 }
 
