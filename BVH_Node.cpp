@@ -61,6 +61,8 @@ bool Intersect_VF(int x0,int x1,int x2,int x3)
     if(ret)
     {
         //cout<<"VF: "<<x0<<" "<<x1<<" "<<x2<<" "<<x3<<endl;
+        test.run_test();
+
     }
     return ret;
 

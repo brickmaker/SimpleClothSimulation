@@ -313,7 +313,19 @@ namespace rootparity {
         // �ж�bilinear patch�ǲ�����һ��ƽ����
         if (0 == plane_dist(x0, x1, x2, x3)) {
             //����������μ���
-            return ray_vs_triangle(x0, x1, x2, flag) ^ ray_vs_triangle(x1, x2, x3, flag);
+            return ray_vs_triangle(x0, x1, x2, flag) || ray_vs_triangle(x1, x2, x3, flag);
+        }
+        if(x0==x2 && x1==x3)
+        {
+            return false;
+        }
+        if(x0==x2)
+        {
+            return ray_vs_triangle(x0, x1, x3, flag);
+        }
+        if(x1==x3)
+        {
+            return ray_vs_triangle(x0, x1, x2, flag);
         }
 
         // �����ڲ�����������
@@ -348,7 +360,7 @@ namespace rootparity {
         double distance;
         implicit_surface_function(origin, x0, x1, x2, x3, distance);
         if (0 == distance) {
-            flag = pointOnFace;
+            //flag = pointOnFace;
             return false;
         }
 

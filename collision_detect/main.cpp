@@ -16,8 +16,8 @@ int main(int argc, char *argv[]) {
 #endif
     {
         //test vertex-triangle
-        Vec3d verts_old[4] = {Vec3d(-2, 0, 1.0000001), Vec3d(0, 0, 1), Vec3d(-1, 0, -1), Vec3d(1, 0, -1)};
-        Vec3d verts_new[4] = {Vec3d(2.1, 0, 0.999999), Vec3d(0, 0, 1), Vec3d(-1, 0, -1), Vec3d(1, 0, -1)};
+        Vec3d verts_old[4] = {Vec3d(0,0,0), Vec3d(1,0,0), Vec3d(0,1,0), Vec3d(1,1,0)};
+        Vec3d verts_new[4] = {Vec3d(0,0,0), Vec3d(1,0,0), Vec3d(0,1,0), Vec3d(1,1,1)};
 
         bool is_edge_edge = false;
 
