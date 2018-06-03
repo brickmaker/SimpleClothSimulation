@@ -14,11 +14,12 @@ set(SOURCE_FILES
         collision_detect/Matrix.h
         collision_detect/vec.h
         collision_detect/rootparitycollisiontest.h
-
         collision_detect/rootparitycollisiontest.cpp
 #        collision_detect/main.cpp
 
         cloth_collision.cpp
+        BVH.cpp BVH.h
+        BVH_Node.h BVH_Node.cpp
         )
 
 add_executable(opengl123 ${SOURCE_FILES})

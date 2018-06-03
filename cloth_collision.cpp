@@ -9,6 +9,7 @@
 #include <map>
 #include <cmath>
 #include <iostream>
+#include "BVH.h"
 
 using namespace std;
 
@@ -38,6 +39,7 @@ GLdouble MV[16];
 GLdouble P[16];
 glm::vec3 upDirection = glm::vec3(0, 1, 0);
 glm::vec3 rightDirection, viewDirection;
+BVH *BVHTree;
 
 // Cloth
 const int NUM_X = 20, NUM_Y = 20;
@@ -45,7 +47,7 @@ const int POINTS_NUM = (NUM_X + 1) * (NUM_Y + 1);
 
 // BALL
 const glm::vec3 BALL_POS = glm::vec3(0.0f, 1.5f, 0.0f);
-const float BALL_RADIUS = 1.0f;
+const float BALL_RADIUS = .5f;
 
 // Springs
 const float K_S_STRUCT = 0.5f;
@@ -258,6 +260,10 @@ void init() {
     fillIndices(indices, NUM_X, NUM_Y);
 
     initSprings();
+    BVHTree = new BVH(0,0,NUM_X+1,NUM_Y+1);
+
+
+
 }
 
 void drawGrid() {
@@ -406,6 +412,7 @@ void ballCollision() {
 
 void collision() {
     ballCollision();
+    BVHTree->collide();
 }
 
 void dynamicInverse() {
@@ -467,6 +474,7 @@ void motion(int x, int y) {
 void close() {
     indices.clear();
     vertices.clear();
+    delete BVHTree;
 }
 
 int main(int argc, char **argv) {
