@@ -5,10 +5,14 @@
 #include <GLUT/glut.h>
 #include <glm/glm.hpp>
 #include <vector>
+#include <unordered_map>
+#include <map>
 #include <cmath>
 #include <iostream>
 
 using namespace std;
+
+const float EPSILON = 0.05f;
 
 // OpenGL Settings
 const int WINDOW_WIDTH = 800;
@@ -19,6 +23,10 @@ const float MOTION_SPEED = 5.0f;
 
 // control
 bool pause = true;
+
+// Light
+const GLfloat LIGHT_COLOR[] = {0.4, 0.4, 0.4, 1.0};
+const GLfloat LIGHT_POS[] = {10, 10, 20, 1};
 
 // Camera and View
 const float CAMERA_DISTANCE = -10.0f;
@@ -63,6 +71,8 @@ vector<GLuint> indices;
 vector<glm::vec3> vertices;
 vector<glm::vec3> forces;
 vector<glm::vec3> velocities;
+vector<vector<pair<GLuint, GLuint>>> adjacentVertexPair;
+vector<glm::vec3> normals;
 
 struct Spring {
     int p1, p2;
@@ -93,6 +103,13 @@ void fillIndices(vector<GLuint> &indices, int numX, int numY) {
                 *curr++ = i1;
                 *curr++ = i2;
                 *curr++ = i3;
+
+                adjacentVertexPair[i0].push_back(make_pair(i2, i1));
+                adjacentVertexPair[i2].push_back(make_pair(i1, i0));
+                adjacentVertexPair[i1].push_back(make_pair(i0, i2));
+                adjacentVertexPair[i1].push_back(make_pair(i2, i3));
+                adjacentVertexPair[i2].push_back(make_pair(i3, i1));
+                adjacentVertexPair[i3].push_back(make_pair(i1, i2));
             } else {
                 *curr++ = i0;
                 *curr++ = i2;
@@ -100,8 +117,33 @@ void fillIndices(vector<GLuint> &indices, int numX, int numY) {
                 *curr++ = i0;
                 *curr++ = i3;
                 *curr++ = i1;
+
+                adjacentVertexPair[i0].push_back(make_pair(i2, i3));
+                adjacentVertexPair[i2].push_back(make_pair(i3, i0));
+                adjacentVertexPair[i3].push_back(make_pair(i0, i2));
+                adjacentVertexPair[i0].push_back(make_pair(i3, i1));
+                adjacentVertexPair[i3].push_back(make_pair(i1, i0));
+                adjacentVertexPair[i1].push_back(make_pair(i0, i3));
             }
         }
+    }
+}
+
+glm::vec3 getVertexNormal(GLuint index) {
+    vector<pair<GLuint, GLuint >> &adjacents = adjacentVertexPair[index];
+    glm::vec3 normalSum = glm::vec3(0);
+    glm::vec3 p1 = vertices[index];
+    for (pair<GLuint, GLuint> &adj : adjacents) {
+        glm::vec3 p2 = vertices[adj.first];
+        glm::vec3 p3 = vertices[adj.second];
+        normalSum += glm::cross(p2 - p1, p3 - p1);
+    }
+    return glm::normalize(normalSum);
+}
+
+void calculateNormals() {
+    for (int i = 0; i < POINTS_NUM; i++) {
+        normals[i] = getVertexNormal(i);
     }
 }
 
@@ -199,12 +241,16 @@ void initSprings() {
 
 void init() {
     glEnable(GL_DEPTH_TEST);
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    glEnable(GL_NORMALIZE);
+//    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     glPointSize(POINT_SIZE);
 
     forces.resize(POINTS_NUM);
     velocities.resize(POINTS_NUM);
+    normals.resize(POINTS_NUM);
+    adjacentVertexPair.resize(POINTS_NUM);
     std::fill(velocities.begin(), velocities.end(), glm::vec3(0));
+    std::fill(adjacentVertexPair.begin(), adjacentVertexPair.end(), vector<pair<GLuint, GLuint>>());
 
     vertices.resize(POINTS_NUM);
     initClothVerticesPos(vertices, NUM_X, NUM_Y);
@@ -229,14 +275,21 @@ void drawGrid() {
 }
 
 void drawCloth() {
+    calculateNormals();
     glColor3f(1, 0, 0);
     glBegin(GL_TRIANGLES);
     for (int i = 0; i < indices.size(); i += 3) {
         glm::vec3 p1 = vertices[indices[i]];
         glm::vec3 p2 = vertices[indices[i + 1]];
         glm::vec3 p3 = vertices[indices[i + 2]];
+        glm::vec3 normal1 = normals[indices[i]];
+        glm::vec3 normal2 = normals[indices[i + 1]];
+        glm::vec3 normal3 = normals[indices[i + 2]];
+        glNormal3f(normal1.x, normal1.y, normal1.z);
         glVertex3f(p1.x, p1.y, p1.z);
+        glNormal3f(normal2.x, normal2.y, normal2.z);
         glVertex3f(p2.x, p2.y, p2.z);
+        glNormal3f(normal3.x, normal3.y, normal3.z);
         glVertex3f(p3.x, p3.y, p3.z);
     }
     glEnd();
@@ -247,7 +300,7 @@ void drawSphere() {
     glPushMatrix();
     glTranslatef(BALL_POS.x, BALL_POS.y, BALL_POS.z);
     glRotatef(90, 1, 0, 0);
-    glutWireSphere(BALL_RADIUS, 24, 24);
+    glutSolidSphere(BALL_RADIUS, 24, 24);
     glPopMatrix();
 }
 
@@ -276,6 +329,11 @@ void display() {
     glClearColor(1.0, 1.0, 1.0, 1);
     glLoadIdentity();
 
+    glEnable(GL_LIGHTING);
+    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, LIGHT_COLOR);
+    glLightfv(GL_LIGHT0, GL_POSITION, LIGHT_POS);
+    glLightfv(GL_LIGHT0, GL_AMBIENT, LIGHT_COLOR);
+    glEnable(GL_LIGHT0);
     adjustCamera();
 
     draw();
@@ -337,9 +395,9 @@ void ballCollision() {
     for (int i = 0; i < POINTS_NUM; i++) {
         glm::vec3 deltaPos = vertices[i] - BALL_POS;
         float distance = glm::length(deltaPos);
-        if (distance < BALL_RADIUS) {
+        if (distance < BALL_RADIUS + EPSILON) {
             // move it to surface
-            glm::vec3 move = glm::normalize(deltaPos) * (BALL_RADIUS - distance);
+            glm::vec3 move = glm::normalize(deltaPos) * (BALL_RADIUS + EPSILON - distance);
             vertices[i] += move;
             velocities[i] = glm::vec3(0);
         }
