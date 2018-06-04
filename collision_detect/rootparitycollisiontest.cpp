@@ -47,19 +47,26 @@ namespace rootparity {
 
         // Determine whether point P in triangle ABC
         bool PointinTriangle(Vec3d A, Vec3d B, Vec3d C, Vec3d P) {
+            if(A==C||A==B||B==C)
+                return false;
             Vec3d v0 = C - A;
             Vec3d v1 = B - A;
             Vec3d v2 = P - A;
+            Vec3d t0 = v0,t1 = v1;
+            normalize(t0);
+            normalize(t1);
+            if(t0==t1||t0==-t1)
+                return false;
 
-            float dot00 = dot(v0, v0);
-            float dot01 = dot(v0, v1);
-            float dot02 = dot(v0, v2);
-            float dot11 = dot(v1, v1);
-            float dot12 = dot(v1, v2);
+            double dot00 = dot(v0, v0);
+            double dot01 = dot(v0, v1);
+            double dot02 = dot(v0, v2);
+            double dot11 = dot(v1, v1);
+            double dot12 = dot(v1, v2);
 
-            float inverDeno = 1 / (dot00 * dot11 - dot01 * dot01);
+            double inverDeno = 1 / (dot00 * dot11 - dot01 * dot01);
 
-            float u = (dot11 * dot02 - dot01 * dot12) * inverDeno;
+            double u = (dot11 * dot02 - dot01 * dot12) * inverDeno;
             if (u < 0 || u > 1) // if u out of range, return directly
             {
                 return false;

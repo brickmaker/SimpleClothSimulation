@@ -143,7 +143,9 @@ BVH_Node::~BVH_Node()
 void BVH_Node::refit()
 {
     if ( isLeaf() ) {
-        minmax(glmToVec3d(vertices[node[0]]),glmToVec3d(vertices[node[1]]),glmToVec3d(vertices[node[2]]),minBox, maxBox);
+        minmax(glmToVec3d(node[0]),glmToVec3d(node[1]),glmToVec3d(node[2]),
+               newVec3d(node[0]),newVec3d(node[1]),newVec3d(node[2]),
+               minBox, maxBox);
         return ;
     }
 
