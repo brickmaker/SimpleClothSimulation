@@ -10,6 +10,11 @@
 
 
 
+enum VertexStatus {
+    NORMAL,
+    BALL_COLLISION,
+    CLOTH_COLLISION
+};
 
 class BVH_Node {
 public:

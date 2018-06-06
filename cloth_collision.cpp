@@ -66,7 +66,7 @@ const float MASS = 0.5f;
 const float DAMPING = -0.0125f;
 const float FRACTION = 1.5f;
 const float BOUNCH_FACTOR = -0.001f;
-const float DELTA_TIME = 1.0f / 20.0f; // todo: fixed timestep
+const float DELTA_TIME = 1.0f / 15.0f; // todo: fixed timestep
 
 enum SpringType {
     SPRING_STRUCTURAL,
@@ -74,8 +74,11 @@ enum SpringType {
     SPRING_BEND
 };
 
+
 vector<GLuint> indices;
 vector<glm::vec3> vertices;
+vector<glm::vec3> verticesVis;
+vector<VertexStatus> verticesStatus;
 vector<glm::vec3> forces;
 vector<glm::vec3> velocities;
 vector<vector<pair<GLuint, GLuint>>> adjacentVertexPair;
@@ -163,11 +166,17 @@ void initClothVerticesPos(vector<glm::vec3> &vertices, int numX, int numY) {
     int curr = 0;
     for (int j = 0; j <= numY; j++) {
         for (int i = 0; i <= numX; i++) {
-            vertices[curr++] = glm::vec3(
+            verticesVis[curr] = glm::vec3(
+                    float(i) / numX * lenU - offsetU,
+                    float(j) / numY * lenV - offsetV,
+                    0
+            );
+            vertices[curr] = glm::vec3(
                     float(i) / numX * lenU - offsetU,
                     height,
                     float(j) / numY * lenV - offsetV
             );
+            curr++;
         }
     }
 }
@@ -262,7 +271,10 @@ void init() {
     std::fill(velocities.begin(), velocities.end(), glm::vec3(0));
     std::fill(adjacentVertexPair.begin(), adjacentVertexPair.end(), vector<pair<GLuint, GLuint>>());
 
+    verticesStatus.resize(POINTS_NUM);
+    std::fill(verticesStatus.begin(), verticesStatus.end(), NORMAL);
     vertices.resize(POINTS_NUM);
+    verticesVis.resize(POINTS_NUM);
     initClothVerticesPos(vertices, NUM_X, NUM_Y);
     indices.resize(NUM_X * NUM_Y * 2 * 3); // 三角形数量 * 3
     fillIndices(indices, NUM_X, NUM_Y);
@@ -426,11 +438,14 @@ void ballCollision() {
         glm::vec3 deltaPos = vertices[i] - BALL_POS;
         float distance = glm::length(deltaPos);
         if (distance < BALL_RADIUS + EPSILON) {
+            verticesStatus[i] = BALL_COLLISION;
             // move it to surface
             glm::vec3 move = glm::normalize(deltaPos) * (BALL_RADIUS + EPSILON - distance);
             vertices[i] += move;
 //            velocities[i] = glm::vec3(0);
             velocities[i] += glm::normalize(deltaPos) * glm::dot(velocities[i], -glm::normalize(deltaPos));
+        } else if (verticesStatus[i] == BALL_COLLISION) {
+            verticesStatus[i] = NORMAL;
         }
     }
 }
@@ -507,29 +522,45 @@ void close() {
 //////////////// cloth collision visualization ///////////////////
 
 void drawClothVis() {
-//    calculateNormals();
-    glColor3f(1, 0, 0);
+    glBegin(GL_POINTS);
+    for (int i = 0; i < indices.size(); i += 1) {
+        glm::vec3 p1 = verticesVis[indices[i]];
+        switch (verticesStatus[indices[i]]) {
+            case NORMAL:
+                glColor3f(0.5, 0.7, 0.5);
+                break;
+            case BALL_COLLISION:
+                glColor3f(1, 0, 0);
+                break;
+            case CLOTH_COLLISION:
+                glColor3f(0, 0, 1);
+                break;
+        }
+        glVertex3f(p1.x, p1.y, p1.z);
+    }
+    glEnd();
+    glColor3f(0.5, 0.7, 0.5);
     glBegin(GL_TRIANGLES);
     for (int i = 0; i < indices.size(); i += 3) {
-        glm::vec3 p1 = vertices[indices[i]];
-        glm::vec3 p2 = vertices[indices[i + 1]];
-        glm::vec3 p3 = vertices[indices[i + 2]];
-        glm::vec3 normal1 = normals[indices[i]];
-        glm::vec3 normal2 = normals[indices[i + 1]];
-        glm::vec3 normal3 = normals[indices[i + 2]];
-        glNormal3f(normal1.x, normal1.y, normal1.z);
+        glm::vec3 p1 = verticesVis[indices[i]];
+        glm::vec3 p2 = verticesVis[indices[i + 1]];
+        glm::vec3 p3 = verticesVis[indices[i + 2]];
+//        glm::vec3 normal1 = normals[indices[i]];
+//        glm::vec3 normal2 = normals[indices[i + 1]];
+//        glm::vec3 normal3 = normals[indices[i + 2]];
+//        glNormal3f(normal1.x, normal1.y, normal1.z);
         glVertex3f(p1.x, p1.y, p1.z);
-        glNormal3f(normal2.x, normal2.y, normal2.z);
+//        glNormal3f(normal2.x, normal2.y, normal2.z);
         glVertex3f(p2.x, p2.y, p2.z);
-        glNormal3f(normal3.x, normal3.y, normal3.z);
+//        glNormal3f(normal3.x, normal3.y, normal3.z);
         glVertex3f(p3.x, p3.y, p3.z);
     }
     glEnd();
 }
 
 void drawVis() {
-    drawGrid();
-    drawSphere();
+//    drawGrid();
+//    drawSphere();
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     drawClothVis();
 }
@@ -538,7 +569,8 @@ void displayVis() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glClearColor(1.0, 1.0, 1.0, 1);
     glLoadIdentity();
-    adjustCamera();
+//    adjustCamera();
+    glTranslatef(0, 0, CAMERA_DISTANCE);
 
     drawVis();
 
