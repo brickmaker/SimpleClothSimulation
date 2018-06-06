@@ -23,6 +23,7 @@ const float POINT_SIZE = 5;
 const float MOTION_SPEED = 5.0f;
 
 // control
+int window[2];
 bool pause = true;
 
 // Light
@@ -49,6 +50,7 @@ const int POINTS_NUM = (NUM_X + 1) * (NUM_Y + 1);
 const glm::vec3 BALL_POS = glm::vec3(0.0f, 1.5f, 0.0f);
 const float BALL_RADIUS = 1.0f;
 const glm::vec3 BALL_ROTATE_SPEED = glm::vec3(0.0f, 10.0f, 0.0f);
+//const glm::vec3 BALL_ROTATE_SPEED = glm::vec3(0.0f, 0.0f, 0.0f);
 
 // Springs
 const float K_S_STRUCT = 0.5f;
@@ -244,12 +246,15 @@ void initSprings() {
     }
 }
 
-void init() {
+void glInit() {
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_NORMALIZE);
 //    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     glPointSize(POINT_SIZE);
 
+}
+
+void init() {
     forces.resize(POINTS_NUM);
     velocities.resize(POINTS_NUM);
     normals.resize(POINTS_NUM);
@@ -263,8 +268,7 @@ void init() {
     fillIndices(indices, NUM_X, NUM_Y);
 
     initSprings();
-    BVHTree = new BVH(0,0,NUM_X,NUM_Y);
-
+    BVHTree = new BVH(0, 0, NUM_X, NUM_Y);
 
 
 }
@@ -305,6 +309,7 @@ void drawCloth() {
 }
 
 void drawSphere() {
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     glColor3f(0, 0, 1);
     glPushMatrix();
     glTranslatef(BALL_POS.x, BALL_POS.y, BALL_POS.z);
@@ -393,7 +398,7 @@ void computeForces() {
             glm::vec3 ballTangentSpeed = glm::cross(BALL_ROTATE_SPEED, r);
             glm::vec3 pressure = forces[i] - glm::dot(forces[i], normal);
             glm::vec3 friction = glm::length(pressure) * FRACTION * glm::normalize(ballTangentSpeed - velocities[i]);
-            forces[i] += friction;
+//            forces[i] += friction;
         }
     }
 }
@@ -455,6 +460,7 @@ void idle() {
     if (!pause)
         simulate(DELTA_TIME);
     glutPostRedisplay();
+    glutSetWindow(window[1]);
 }
 
 void keyboard(unsigned char key, int x, int y) {
@@ -493,11 +499,87 @@ void close() {
     delete BVHTree;
 }
 
+
+//////////////// cloth collision visualization ///////////////////
+
+void drawClothVis() {
+//    calculateNormals();
+    glColor3f(1, 0, 0);
+    glBegin(GL_TRIANGLES);
+    for (int i = 0; i < indices.size(); i += 3) {
+        glm::vec3 p1 = vertices[indices[i]];
+        glm::vec3 p2 = vertices[indices[i + 1]];
+        glm::vec3 p3 = vertices[indices[i + 2]];
+        glm::vec3 normal1 = normals[indices[i]];
+        glm::vec3 normal2 = normals[indices[i + 1]];
+        glm::vec3 normal3 = normals[indices[i + 2]];
+        glNormal3f(normal1.x, normal1.y, normal1.z);
+        glVertex3f(p1.x, p1.y, p1.z);
+        glNormal3f(normal2.x, normal2.y, normal2.z);
+        glVertex3f(p2.x, p2.y, p2.z);
+        glNormal3f(normal3.x, normal3.y, normal3.z);
+        glVertex3f(p3.x, p3.y, p3.z);
+    }
+    glEnd();
+}
+
+void drawVis() {
+    drawGrid();
+    drawSphere();
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    drawClothVis();
+}
+
+void displayVis() {
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glClearColor(1.0, 1.0, 1.0, 1);
+    glLoadIdentity();
+    adjustCamera();
+
+    drawVis();
+
+    glutSwapBuffers();
+}
+
+void reshapeVis(int width, int height) {
+    glViewport(0, 0, width, height);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluPerspective(45, (GLfloat) width / (GLfloat) height, 1.f, 100.0f);
+
+    glGetIntegerv(GL_VIEWPORT, viewport);
+    glGetDoublev(GL_PROJECTION_MATRIX, P);
+
+    glMatrixMode(GL_MODELVIEW);
+}
+
+void idleVis() {
+    if (!pause)
+        simulate(DELTA_TIME);
+    glutPostRedisplay();
+    glutSetWindow(window[0]);
+}
+
+void time(int te) {
+
+    glutSetWindow(window[0]);
+    glutPostRedisplay();  // Update screen with new rotation data
+
+    glutSetWindow(window[1]);
+    glutPostRedisplay();  // Update screen with new rotation data
+
+    glutTimerFunc(100, time, 1);  // Reset our timmer.
+}
+
 int main(int argc, char **argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
+
+    init();
+
+    glutInitWindowPosition(0, 0);
     glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-    glutCreateWindow("Cloth Collision");
+    window[0] = glutCreateWindow("Cloth Collision");
 
     glutDisplayFunc(display);
     glutReshapeFunc(reshape);
@@ -506,9 +588,21 @@ int main(int argc, char **argv) {
     glutMouseFunc(mouse);
     glutMotionFunc(motion);
     glutWMCloseFunc(close);
+    glInit();
 
-    init();
+    glutInitWindowPosition(800, 0);
+    window[1] = glutCreateWindow("visualization");
+    glutDisplayFunc(displayVis);
+    glutReshapeFunc(reshapeVis);
+    glutIdleFunc(idleVis);
+    glutKeyboardFunc(keyboard);
+    glutMouseFunc(mouse);
+    glutMotionFunc(motion);
+    glutWMCloseFunc(close);
+    glInit();
 
+
+    glutTimerFunc(10, time, 1);
     glutMainLoop();
     return 0;
 }
