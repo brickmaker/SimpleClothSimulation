@@ -35,7 +35,6 @@ Vec3d newVec3d(int index) {
 }
 
 void changeState(BVH_Node *temp, VertexStatus status) {
-    /*
     if (status == NORMAL) { // change to normal special consideration
         if (verticesStatus[temp->node[0]] == CLOTH_COLLISION)
             verticesStatus[temp->node[0]] = NORMAL;
@@ -44,11 +43,11 @@ void changeState(BVH_Node *temp, VertexStatus status) {
         if (verticesStatus[temp->node[2]] == CLOTH_COLLISION)
             verticesStatus[temp->node[2]] = NORMAL;
         return;
+    } else {
+        verticesStatus[temp->node[0]] = status;
+        verticesStatus[temp->node[1]] = status;
+        verticesStatus[temp->node[2]] = status;
     }
-     */
-    verticesStatus[temp->node[0]] = status;
-    verticesStatus[temp->node[1]] = status;
-    verticesStatus[temp->node[2]] = status;
 }
 
 void stopMove(BVH_Node *temp) {
@@ -203,6 +202,10 @@ bool BVH_Node::leafCollide(BVH_Node *target) {
             changeState(target, CLOTH_COLLISION);
             stopMove(this);
             stopMove(target);
+        } else {
+            // todo: change state back
+//            changeState(this, NORMAL);
+//            changeState(target, NORMAL);
         }
 
     } else {

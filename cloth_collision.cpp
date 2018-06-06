@@ -64,9 +64,9 @@ const float K_D_BEND = -0.25f;
 const glm::vec3 GRAVITY = glm::vec3(0, -0.00981f, 0);
 const float MASS = 0.5f;
 const float DAMPING = -0.0125f;
-const float FRACTION = 1.5f;
+const float FRACTION = 0.9f;
 const float BOUNCH_FACTOR = -0.001f;
-const float DELTA_TIME = 1.0f / 15.0f; // todo: fixed timestep
+const float DELTA_TIME = 1.0f / 25.0f; // todo: fixed timestep
 
 enum SpringType {
     SPRING_STRUCTURAL,
@@ -410,7 +410,7 @@ void computeForces() {
             glm::vec3 ballTangentSpeed = glm::cross(BALL_ROTATE_SPEED, r);
             glm::vec3 pressure = forces[i] - glm::dot(forces[i], normal);
             glm::vec3 friction = glm::length(pressure) * FRACTION * glm::normalize(ballTangentSpeed - velocities[i]);
-//            forces[i] += friction;
+            forces[i] += friction;
         }
     }
 }
