@@ -455,9 +455,9 @@ void dynamicInverse() {
 
 void simulate(float dT) {
     computeForces();
+    dynamicInverse();
     integrate(dT);
     collision();
-    dynamicInverse();
 }
 
 void idle() {
