@@ -405,14 +405,16 @@ void computeForces() {
 
 void integrateExplicitEuler(float dT) {
     for (int i = 0; i < POINTS_NUM; i++) {
-        if (i == 0)
+        if (i == 0 || i == POINTS_NUM - 1)
             continue;
         vertices[i] += dT * velocities[i];
         velocities[i] += forces[i] / MASS * dT;
 
-        if (vertices[i].y < 0)
-            vertices[i].y = 0;
+//        if (vertices[i].y < 0)
+//            vertices[i].y = 0;
     }
+    velocities[0] = glm::vec3(0, 0, 0);
+    velocities[POINTS_NUM - 1] = glm::vec3(0, 0, 0);
 }
 
 void integrate(float dT) {
