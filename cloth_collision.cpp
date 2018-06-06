@@ -66,7 +66,7 @@ const float MASS = 0.5f;
 const float DAMPING = -0.0125f;
 const float FRACTION = 1.5f;
 const float BOUNCH_FACTOR = -0.001f;
-const float DELTA_TIME = 1.0f / 10.0f; // todo: fixed timestep
+const float DELTA_TIME = 1.0f / 20.0f; // todo: fixed timestep
 
 enum SpringType {
     SPRING_STRUCTURAL,
@@ -405,6 +405,8 @@ void computeForces() {
 
 void integrateExplicitEuler(float dT) {
     for (int i = 0; i < POINTS_NUM; i++) {
+        if (i == 0)
+            continue;
         vertices[i] += dT * velocities[i];
         velocities[i] += forces[i] / MASS * dT;
 
