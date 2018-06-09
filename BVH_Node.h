@@ -4,11 +4,9 @@
 
 #ifndef OPENGL123_BVH_NODE_H
 #define OPENGL123_BVH_NODE_H
+
 #include <glm/glm.hpp>
 #include "collision_detect/vec.h"
-
-
-
 
 
 class BVH_Node {
@@ -21,7 +19,8 @@ public:
 
 public:
     BVH_Node(int startX, int startY, int endX, int endY);
-    BVH_Node(int index1,int index2,int index3);
+
+    BVH_Node(int index1, int index2, int index3);
 
     ~BVH_Node();
 
@@ -34,12 +33,10 @@ public:
 
     void selfCollide();
 
-    bool isLeaf(){return isleaf;};
+    bool isLeaf() { return isleaf; };
 
     bool overlaps(BVH_Node *box);
 };
-
-
 
 
 #endif //OPENGL123_BVH_NODE_H

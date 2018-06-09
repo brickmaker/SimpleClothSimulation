@@ -7,32 +7,43 @@
 
 #include "BVH_Node.h"
 
-class CCD_Object ;
+class CCD_Object;
 
 class BVH {
 
-    friend class BVH_Node ;
+    friend class BVH_Node;
 
 private:
-    BVH_Node _rootNode	;
+    BVH_Node _rootNode1;
+    BVH_Node _rootNode2;
 
 public:
     //
-    BVH(int startX,int startY,int endX, int endY):_rootNode(startX,startY,endX,endY)
+    BVH(int startX, int startY, int endX, int endY,int length) : _rootNode1(startX, startY, endX, endY) ,
+                                                      _rootNode2(startX + length, startY, endX + length, endY)
     {
-        _rootNode.refit();
-    }
-    ~BVH(void){};
-
-    void refit( void )
-    {
-        _rootNode.refit() ;
+        // 抱歉这里在合代码的时候可能xy的定义和前面不一样
+        _rootNode1.refit();
+        _rootNode2.refit();
     }
 
-    void collide(void)
-    {
-        _rootNode.refit();
-        _rootNode.selfCollide();
+    ~BVH(void) {};
+
+    void refit(void) {
+        _rootNode1.refit();
+        _rootNode2.refit();
+    }
+
+    void collide(void) {
+        _rootNode1.refit();
+        _rootNode2.refit();
+//        _rootNode1.selfCollide();
+//        _rootNode2.selfCollide();
+        _rootNode1.collide(&_rootNode2);
+        _rootNode1.collide(&_rootNode2);
+        _rootNode1.collide(&_rootNode2);
+
+
     }
 
 };

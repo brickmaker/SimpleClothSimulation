@@ -80,7 +80,7 @@ namespace rootparity {
 
         bool ray_vs_bilinear_patch(const Vec3d &x0, const Vec3d &x1, const Vec3d &x2, const Vec3d &x3, FLAGTYPE &flag);
 
-        void randGenerateRay();
+        void randGenerateRay(int N);
 
 
     };

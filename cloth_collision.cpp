@@ -8,6 +8,7 @@
 #include <unordered_map>
 #include <map>
 #include <cmath>
+#include <algorithm>
 #include <iostream>
 #include "BVH.h"
 
@@ -42,8 +43,8 @@ glm::vec3 rightDirection, viewDirection;
 BVH *BVHTree;
 
 // Cloth
-const int NUM_X = 20, NUM_Y = 20;
-const int POINTS_NUM = (NUM_X + 1) * (NUM_Y + 1);
+const int NUM_X = 20, NUM_Y = 20;//改Node
+const int POINTS_NUM = (NUM_X + 1) * (NUM_Y + 1) * 2;
 
 // BALL
 const glm::vec3 BALL_POS = glm::vec3(0.0f, 1.5f, 0.0f);
@@ -64,7 +65,8 @@ const float MASS = 0.5f;
 const float DAMPING = -0.0125f;
 const float FRACTION = 1.5f;
 const float BOUNCH_FACTOR = -0.001f;
-const float DELTA_TIME = 1.0f / 10.0f; // todo: fixed timestep
+const float DELTA_TIME = 1.0f / 20.0f; // todo: fixed timestep
+//改Node
 
 enum SpringType {
     SPRING_STRUCTURAL,
@@ -78,6 +80,15 @@ vector<glm::vec3> forces;
 vector<glm::vec3> velocities;
 vector<vector<pair<GLuint, GLuint>>> adjacentVertexPair;
 vector<glm::vec3> normals;
+
+glm::vec3 normalize_t(glm::vec3 vec_t) {
+    float len = glm::length(vec_t);
+    if (0 == len) {
+        return glm::vec3(0);
+    } else {
+        return glm::vec3(vec_t.x / len, vec_t.y / len, vec_t.z / len);
+    }
+}
 
 struct Spring {
     int p1, p2;
@@ -132,6 +143,43 @@ void fillIndices(vector<GLuint> &indices, int numX, int numY) {
             }
         }
     }
+    for (int i = numY + 1; i < 2 * numY + 1; i++) {
+        for (int j = 0; j < numX; j++) {
+            int i0 = i * (numX + 1) + j;
+            int i1 = i0 + 1;
+            int i2 = i0 + (numX + 1);
+            int i3 = i2 + 1;
+            if ((j + i) % 2) {
+                *curr++ = i0;
+                *curr++ = i2;
+                *curr++ = i1;
+                *curr++ = i1;
+                *curr++ = i2;
+                *curr++ = i3;
+
+                adjacentVertexPair[i0].push_back(make_pair(i2, i1));
+                adjacentVertexPair[i2].push_back(make_pair(i1, i0));
+                adjacentVertexPair[i1].push_back(make_pair(i0, i2));
+                adjacentVertexPair[i1].push_back(make_pair(i2, i3));
+                adjacentVertexPair[i2].push_back(make_pair(i3, i1));
+                adjacentVertexPair[i3].push_back(make_pair(i1, i2));
+            } else {
+                *curr++ = i0;
+                *curr++ = i2;
+                *curr++ = i3;
+                *curr++ = i0;
+                *curr++ = i3;
+                *curr++ = i1;
+
+                adjacentVertexPair[i0].push_back(make_pair(i2, i3));
+                adjacentVertexPair[i2].push_back(make_pair(i3, i0));
+                adjacentVertexPair[i3].push_back(make_pair(i0, i2));
+                adjacentVertexPair[i0].push_back(make_pair(i3, i1));
+                adjacentVertexPair[i3].push_back(make_pair(i1, i0));
+                adjacentVertexPair[i1].push_back(make_pair(i0, i3));
+            }
+        }
+    }
 }
 
 glm::vec3 getVertexNormal(GLuint index) {
@@ -143,7 +191,7 @@ glm::vec3 getVertexNormal(GLuint index) {
         glm::vec3 p3 = vertices[adj.second];
         normalSum += glm::cross(p2 - p1, p3 - p1);
     }
-    return glm::normalize(normalSum);
+    return normalize_t(normalSum);
 }
 
 void calculateNormals() {
@@ -151,6 +199,36 @@ void calculateNormals() {
         normals[i] = getVertexNormal(i);
     }
 }
+
+int XYtoIndex(int X, int Y);
+
+void addNormals(int x, int y, glm::vec3 vec_t) {
+    normals[XYtoIndex(x, y)] += vec_t;
+    normals[XYtoIndex(x + 1, y)] += vec_t;
+    normals[XYtoIndex(x, y + 1)] += vec_t;
+    normals[XYtoIndex(x + 1, y + 1)] += vec_t;
+}
+
+// void calculateNormals() {
+//     for (int i = 0; i < POINTS_NUM; i++) {
+//         normals[i] = glm::vec3(0);
+//     }
+//
+//     for (int j = 0; j < NUM_Y; j++) {
+//         for (int i = 0; i < NUM_X; i++) {
+//             glm::vec3 vec_t(0);
+//             vec_t += glm::cross(vertices[XYtoIndex(i+1,j)] - vertices[XYtoIndex(i,j)], vertices[XYtoIndex(i,j+1)] - vertices[XYtoIndex(i,j)] );
+//             vec_t += glm::cross(vertices[XYtoIndex(i+1,j+1)] - vertices[XYtoIndex(i+1,j)], vertices[XYtoIndex(i,j)] - vertices[XYtoIndex(i+1,j)] );
+//             vec_t += glm::cross(vertices[XYtoIndex(i,j+1)] - vertices[XYtoIndex(i+1,j+1)], vertices[XYtoIndex(i+1,j)] - vertices[XYtoIndex(i+1,j+1)] );
+//             vec_t += glm::cross(vertices[XYtoIndex(i,j)] - vertices[XYtoIndex(i,j+1)], vertices[XYtoIndex(i+1,j+1)] - vertices[XYtoIndex(i,j+1)] );
+//             addNormals(i,j,vec_t);
+//
+//         }
+//     }
+//    for (int i = 0; i < POINTS_NUM; i++) {
+//        normals[i] = normalize_t(normals[i]);
+//    }
+//}
 
 void initClothVerticesPos(vector<glm::vec3> &vertices, int numX, int numY) {
     const float height = 3.0;
@@ -165,6 +243,18 @@ void initClothVerticesPos(vector<glm::vec3> &vertices, int numX, int numY) {
                     float(i) / numX * lenU - offsetU,
                     height,
                     float(j) / numY * lenV - offsetV
+
+            );
+        }
+    }
+    for (int j = numY + 1; j <= 2 * numY + 1; j++) {
+        for (int i = 0; i <= numX; i++) {
+            //  学不会线代现场
+            vertices[curr++] = glm::vec3(
+                    0.707106 * (float(j - numY - 1) / numY * lenV - offsetV + float(i) / numX * lenU - offsetU),
+                    height * 2,
+                    0.707106 * (float(j - numY - 1) / numY * lenV - offsetV - float(i) / numX * lenU - offsetU) +
+                    offsetV * 1.5
             );
         }
     }
@@ -208,6 +298,7 @@ void initSprings() {
                     K_D_SHEAR,
                     SPRING_SHEAR
             );
+
             springs.emplace_back(
                     (j + 1) * (NUM_X + 1) + i,
                     j * (NUM_X + 1) + i + 1,
@@ -242,7 +333,79 @@ void initSprings() {
             );
         }
     }
+    // horizontal
+    for (int j = NUM_Y + 1; j <= 2 * NUM_Y + 1; j++) {
+        for (int i = 0; i < NUM_X; i++) {
+            springs.emplace_back(
+                    j * (NUM_X + 1) + i,
+                    j * (NUM_X + 1) + i + 1,
+                    K_S_STRUCT,
+                    K_D_STRUCT,
+                    SPRING_STRUCTURAL
+            );
+        }
+    }
+
+    // vertical
+    for (int i = 0; i <= NUM_X; i++) {
+        for (int j = NUM_Y + 1; j < 2 * NUM_Y + 1; j++) {
+            springs.emplace_back(
+                    j * (NUM_X + 1) + i,
+                    (j + 1) * (NUM_Y + 1) + i,
+                    K_S_STRUCT,
+                    K_D_STRUCT,
+                    SPRING_STRUCTURAL
+            );
+        }
+    }
+
+
+    // shear 对角线
+    for (int j = NUM_Y + 1; j < 2 * NUM_Y + 1; j++) {
+        for (int i = 0; i < NUM_X; i++) {
+            springs.emplace_back(
+                    j * (NUM_X + 1) + i,
+                    (j + 1) * (NUM_X + 1) + i + 1,
+                    K_S_SHEAR,
+                    K_D_SHEAR,
+                    SPRING_SHEAR
+            );
+            springs.emplace_back(
+                    (j + 1) * (NUM_X + 1) + i,
+                    j * (NUM_X + 1) + i + 1,
+                    K_S_SHEAR,
+                    K_D_SHEAR,
+                    SPRING_SHEAR
+            );
+        }
+    }
+
+
+    // bend
+    for (int j = NUM_Y + 1; j <= 2 * NUM_Y + 1; j++) {
+        for (int i = 0; i <= NUM_X - 2; i++) {
+            springs.emplace_back(
+                    j * (NUM_X + 1) + i,
+                    j * (NUM_X + 1) + i + 2,
+                    K_S_BEND,
+                    K_D_BEND,
+                    SPRING_BEND
+            );
+        }
+    }
+    for (int i = 0; i <= NUM_X; i++) {
+        for (int j = NUM_Y + 1; j <= NUM_Y * 2 - 1; j++) {
+            springs.emplace_back(
+                    j * (NUM_X + 1) + i,
+                    (j + 2) * (NUM_X + 1) + i,
+                    K_S_BEND,
+                    K_D_BEND,
+                    SPRING_BEND
+            );
+        }
+    }
 }
+
 
 void init() {
     glEnable(GL_DEPTH_TEST);
@@ -259,15 +422,15 @@ void init() {
 
     vertices.resize(POINTS_NUM);
     initClothVerticesPos(vertices, NUM_X, NUM_Y);
-    indices.resize(NUM_X * NUM_Y * 2 * 3); // 三角形数量 * 3
+    indices.resize(NUM_X * NUM_Y * 2 * 3 * 2); // 三角形数量 * 3
     fillIndices(indices, NUM_X, NUM_Y);
 
     initSprings();
-    BVHTree = new BVH(0,0,NUM_X,NUM_Y);
-
+    BVHTree = new BVH(0, 0, NUM_X, NUM_Y, NUM_X + 1);
 
 
 }
+
 
 void drawGrid() {
     const int GRID_SIZE = 10;
@@ -283,11 +446,16 @@ void drawGrid() {
     glEnd();
 }
 
+
 void drawCloth() {
     calculateNormals();
-    glColor3f(1, 0, 0);
+//    glColor3f(1, 0, 0);
+
     glBegin(GL_TRIANGLES);
-    for (int i = 0; i < indices.size(); i += 3) {
+    glColor3f(1, 0, 0);
+
+    int i = 0;
+    for (i = 0; i < indices.size() / 2; i += 3) {
         glm::vec3 p1 = vertices[indices[i]];
         glm::vec3 p2 = vertices[indices[i + 1]];
         glm::vec3 p3 = vertices[indices[i + 2]];
@@ -301,6 +469,23 @@ void drawCloth() {
         glNormal3f(normal3.x, normal3.y, normal3.z);
         glVertex3f(p3.x, p3.y, p3.z);
     }
+
+    glColor3f(1, 0, 0);
+    for (; i < indices.size(); i += 3) {
+        glm::vec3 p1 = vertices[indices[i]];
+        glm::vec3 p2 = vertices[indices[i + 1]];
+        glm::vec3 p3 = vertices[indices[i + 2]];
+        glm::vec3 normal1 = normals[indices[i]];
+        glm::vec3 normal2 = normals[indices[i + 1]];
+        glm::vec3 normal3 = normals[indices[i + 2]];
+        glNormal3f(normal1.x, normal1.y, normal1.z);
+        glVertex3f(p1.x, p1.y, p1.z);
+        glNormal3f(normal2.x, normal2.y, normal2.z);
+        glVertex3f(p2.x, p2.y, p2.z);
+        glNormal3f(normal3.x, normal3.y, normal3.z);
+        glVertex3f(p3.x, p3.y, p3.z);
+    }
+
     glEnd();
 }
 
@@ -379,23 +564,25 @@ void computeForces() {
 
         float fS = -springs[i].kS * (len - springs[i].restLenth);
         float fD = springs[i].kD * (glm::dot(dV, dX) / len);
-        glm::vec3 f = (fD + fD) * glm::normalize(dX);
 
+        glm::vec3 f = (fD + fD) * normalize_t(dX);
         forces[springs[i].p1] += f;
         forces[springs[i].p2] -= f;
     }
+
     // friction
-    // todo: only for ball friction
-    for (int i = 0; i < POINTS_NUM; i++) {
-        if (glm::length(vertices[i] - BALL_POS) < BALL_RADIUS + 2 * EPSILON) {
-            glm::vec3 normal = glm::normalize(BALL_POS - vertices[i]);
-            glm::vec3 r = glm::vec3(vertices[i].x, 0, vertices[i].z);
-            glm::vec3 ballTangentSpeed = glm::cross(BALL_ROTATE_SPEED, r);
-            glm::vec3 pressure = forces[i] - glm::dot(forces[i], normal);
-            glm::vec3 friction = glm::length(pressure) * FRACTION * glm::normalize(ballTangentSpeed - velocities[i]);
-            forces[i] += friction;
-        }
-    }
+//    // todo: only for ball friction
+//    for (int i = 0; i < POINTS_NUM; i++) {
+//        if (glm::length(vertices[i] - BALL_POS) < BALL_RADIUS + 2 * EPSILON) {
+//            glm::vec3 normal = normalize_t(BALL_POS - vertices[i]);
+//            glm::vec3 r = glm::vec3(vertices[i].x, 0, vertices[i].z);
+//            glm::vec3 ballTangentSpeed = glm::cross(BALL_ROTATE_SPEED, r);
+//            glm::vec3 pressure = normal * glm::dot(forces[i], normal);
+//            glm::vec3 friction = glm::length(pressure) * FRACTION * normalize_t(ballTangentSpeed - velocities[i]);
+//            forces[i] += friction;
+//        }
+//    }
+
 }
 
 void integrateExplicitEuler(float dT) {
@@ -403,8 +590,8 @@ void integrateExplicitEuler(float dT) {
         vertices[i] += dT * velocities[i];
         velocities[i] += forces[i] / MASS * dT;
 
-        if (vertices[i].y < 0)
-            vertices[i].y = 0;
+//        if (vertices[i].y < 0)
+//            vertices[i].y = 0;
     }
 }
 
@@ -416,12 +603,18 @@ void ballCollision() {
     for (int i = 0; i < POINTS_NUM; i++) {
         glm::vec3 deltaPos = vertices[i] - BALL_POS;
         float distance = glm::length(deltaPos);
+        glm::vec3 deltaPosNorm = normalize_t(deltaPos);
+
+
         if (distance < BALL_RADIUS + EPSILON) {
             // move it to surface
-            glm::vec3 move = glm::normalize(deltaPos) * (BALL_RADIUS + EPSILON - distance);
+            glm::vec3 move = normalize_t(deltaPos) * (BALL_RADIUS + EPSILON - distance);
             vertices[i] += move;
-//            velocities[i] = glm::vec3(0);
-            velocities[i] += glm::normalize(deltaPos) * glm::dot(velocities[i], -glm::normalize(deltaPos));
+
+            velocities[i] = glm::vec3(0);
+            forces[i] = glm::vec3(0);
+//            velocities[i] += normalize_t(deltaPos) * glm::dot(velocities[i], -normalize_t(deltaPos));
+//            forces[i] += normalize_t(deltaPos) * glm::dot(forces[i], -normalize_t(deltaPos));
         }
     }
 }
@@ -435,20 +628,27 @@ void dynamicInverse() {
     for (int i = 0; i < springs.size(); i++) {
         glm::vec3 deltaPos = vertices[springs[i].p1] - vertices[springs[i].p2];
         float distance = glm::length(deltaPos);
-        if (distance > springs[i].restLenth) {
-            glm::vec3 move = (distance - springs[i].restLenth) / 2 * glm::normalize(deltaPos);
-            // todo: 速度的变化，与长度的关系？？？
-            velocities[springs[i].p1] -= move;
-            velocities[springs[i].p2] += move;
-        }
+//        if (distance > springs[i].restLenth){
+        // 不行我把这个注掉试试
+        glm::vec3 move = (distance - springs[i].restLenth) / 2 * normalize_t(deltaPos);
+        // todo: 速度的变化，与长度的关系？？？
+        velocities[springs[i].p1] -= move;
+        velocities[springs[i].p2] += move;
+//        }
     }
 }
 
 void simulate(float dT) {
-    computeForces();
-    integrate(dT);
-    collision();
-    dynamicInverse();
+//    computeForces();  // 计算力
+//    integrate(dT);  // 更新位置
+//    collision();    // 计算碰撞
+//    dynamicInverse();  // 弹簧模型 计算速度
+
+    computeForces();    // 计算力
+    dynamicInverse();   // 弹簧模型 计算速度
+    collision();        // 计算碰撞
+    integrate(dT);      // 更新位置
+
 }
 
 void idle() {

@@ -90,15 +90,21 @@ namespace rootparity {
             return false;
 
         int S;
-        while (1) {
+        int N = 0;
+        while (++N) {
             S = 0;
             FLAGTYPE flag = right;
-            randGenerateRay();
+            randGenerateRay(N-1);
 
             S += ray_vs_bilinear_patch(m_x0old - m_x2old, m_x0old - m_x3old, m_x1old - m_x2old, m_x1old - m_x3old,
                                        flag);
             S += ray_vs_bilinear_patch(m_x0new - m_x2new, m_x0new - m_x3new, m_x1new - m_x2new, m_x1new - m_x3new,
                                        flag);
+
+            if (pointOnFace == flag)            //  �����������
+                return true;
+            else if (throughEdge == flag)        //  ������ڱ�Ե
+                continue;
 
             S += ray_vs_bilinear_patch(m_x0old - m_x2old, m_x0old - m_x3old, m_x0new - m_x2new, m_x0new - m_x3new,
                                        flag);//0-2 0-3
@@ -128,12 +134,12 @@ namespace rootparity {
         // ��Χ��
         if (!AABB_point_tri())
             return false;
-
+        int N = 0;
         int S;
-        while (1) {
+        while (++N) {
             S = 0;
             FLAGTYPE flag = right;
-            randGenerateRay();
+            randGenerateRay(N-1);
 
             S += ray_vs_bilinear_patch(m_x0old - m_x1old, m_x0old - m_x2old, m_x0new - m_x1new, m_x0new - m_x2new,
                                        flag);
@@ -141,6 +147,11 @@ namespace rootparity {
                                        flag);
             S += ray_vs_bilinear_patch(m_x0old - m_x1old, m_x0old - m_x3old, m_x0new - m_x1new, m_x0new - m_x3new,
                                        flag);
+
+            if (pointOnFace == flag)            //  �����������
+                return true;
+            else if (throughEdge == flag)        //  ������ڱ�Ե
+                continue;
 
             S += ray_vs_triangle(m_x0old - m_x1old, m_x0old - m_x2old, m_x0old - m_x3old, flag);
             S += ray_vs_triangle(m_x0new - m_x1new, m_x0new - m_x2new, m_x0new - m_x3new, flag);
@@ -158,8 +169,13 @@ namespace rootparity {
     }
 
 
-    void RootParityCollisionTest::randGenerateRay() {
-        m_ray = Vec3d(double(rand()), double(rand()), double(rand()));
+    Vec3d standard[5] = {Vec3d(1),Vec3d(-1),Vec3d(1,1,-1),Vec3d(1,-1,-1)};
+
+    void RootParityCollisionTest::randGenerateRay(int N) {
+        if(N<5)
+            m_ray = standard[N];
+        else
+            m_ray = Vec3d(double(rand()), double(rand()), double(rand()));
         //m_ray = Vec3d(0,0,1);
 
     }
