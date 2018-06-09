@@ -98,6 +98,15 @@ struct Spring {
 
 vector<Spring> springs;
 
+glm::vec3 normalize_t(glm::vec3 vec_t) {
+    float len = glm::length(vec_t);
+    if (0 == len) {
+        return glm::vec3(0);
+    } else {
+        return glm::vec3(vec_t.x / len, vec_t.y / len, vec_t.z / len);
+    }
+}
+
 void fillIndices(vector<GLuint> &indices, int numX, int numY) {
     GLuint *curr = &indices[0];
     for (int i = 0; i < numY; i++) {
@@ -148,7 +157,7 @@ glm::vec3 getVertexNormal(GLuint index) {
         glm::vec3 p3 = vertices[adj.second];
         normalSum += glm::cross(p2 - p1, p3 - p1);
     }
-    return glm::normalize(normalSum);
+    return normalize_t(normalSum);
 }
 
 void calculateNormals() {
@@ -396,7 +405,7 @@ void computeForces() {
 
         float fS = -springs[i].kS * (len - springs[i].restLenth);
         float fD = springs[i].kD * (glm::dot(dV, dX) / len);
-        glm::vec3 f = (fD + fD) * glm::normalize(dX);
+        glm::vec3 f = (fD + fD) * normalize_t(dX);
 
         forces[springs[i].p1] += f;
         forces[springs[i].p2] -= f;
@@ -405,11 +414,11 @@ void computeForces() {
     // todo: only for ball friction
     for (int i = 0; i < POINTS_NUM; i++) {
         if (glm::length(vertices[i] - BALL_POS) < BALL_RADIUS + 2 * EPSILON) {
-            glm::vec3 normal = glm::normalize(BALL_POS - vertices[i]);
+            glm::vec3 normal = normalize_t(BALL_POS - vertices[i]);
             glm::vec3 r = glm::vec3(vertices[i].x, 0, vertices[i].z);
             glm::vec3 ballTangentSpeed = glm::cross(BALL_ROTATE_SPEED, r);
             glm::vec3 pressure = forces[i] - glm::dot(forces[i], normal);
-            glm::vec3 friction = glm::length(pressure) * FRACTION * glm::normalize(ballTangentSpeed - velocities[i]);
+            glm::vec3 friction = glm::length(pressure) * FRACTION * normalize_t(ballTangentSpeed - velocities[i]);
             forces[i] += friction;
         }
     }
@@ -417,16 +426,16 @@ void computeForces() {
 
 void integrateExplicitEuler(float dT) {
     for (int i = 0; i < POINTS_NUM; i++) {
-        if (i == 0 || i == POINTS_NUM - 1)
-            continue;
+//        if (i == 0 || i == POINTS_NUM - 1)
+//            continue;
         vertices[i] += dT * velocities[i];
         velocities[i] += forces[i] / MASS * dT;
 
 //        if (vertices[i].y < 0)
 //            vertices[i].y = 0;
     }
-    velocities[0] = glm::vec3(0, 0, 0);
-    velocities[POINTS_NUM - 1] = glm::vec3(0, 0, 0);
+//    velocities[0] = glm::vec3(0, 0, 0);
+//    velocities[POINTS_NUM - 1] = glm::vec3(0, 0, 0);
 }
 
 void integrate(float dT) {
@@ -440,10 +449,10 @@ void ballCollision() {
         if (distance < BALL_RADIUS + EPSILON) {
             verticesStatus[i] = BALL_COLLISION;
             // move it to surface
-            glm::vec3 move = glm::normalize(deltaPos) * (BALL_RADIUS + EPSILON - distance);
+            glm::vec3 move = normalize_t(deltaPos) * (BALL_RADIUS + EPSILON - distance);
             vertices[i] += move;
 //            velocities[i] = glm::vec3(0);
-            velocities[i] += glm::normalize(deltaPos) * glm::dot(velocities[i], -glm::normalize(deltaPos));
+            velocities[i] += normalize_t(deltaPos) * glm::dot(velocities[i], -normalize_t(deltaPos));
         } else if (verticesStatus[i] == BALL_COLLISION) {
             verticesStatus[i] = NORMAL;
         }
@@ -459,16 +468,18 @@ void dynamicInverse() {
     for (int i = 0; i < springs.size(); i++) {
         glm::vec3 deltaPos = vertices[springs[i].p1] - vertices[springs[i].p2];
         float distance = glm::length(deltaPos);
-        if (distance > springs[i].restLenth) {
-            glm::vec3 move = (distance - springs[i].restLenth) / 2 * glm::normalize(deltaPos);
-            // todo: 速度的变化，与长度的关系？？？
-            velocities[springs[i].p1] -= move;
-            velocities[springs[i].p2] += move;
-        }
+//        if (distance > springs[i].restLenth) {
+        glm::vec3 move = (distance - springs[i].restLenth) / 2 * normalize_t(deltaPos);
+        // todo: 速度的变化，与长度的关系？？？
+        velocities[springs[i].p1] -= move;
+        velocities[springs[i].p2] += move;
+//        }
     }
 }
 
 void simulate(float dT) {
+    std::fill(verticesStatus.begin(), verticesStatus.end(), NORMAL);
+    vector<VertexStatus> verticesStatus;
     computeForces();
     dynamicInverse();
     integrate(dT);
