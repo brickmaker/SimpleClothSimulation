@@ -190,6 +190,33 @@ void initClothVerticesPos(vector<glm::vec3> &vertices, int numX, int numY) {
     }
 }
 
+void initCurveCloth(vector<glm::vec3> &vertices, int numX, int numY) {
+    const float height = 3.0;
+    const float lenU = 5.0;
+    const float lenV = 5.0;
+    const float offsetU = lenU / 2;
+    const float offsetV = lenV / 2;
+    const float epsilon = 0.0001;
+    const int curveNum = 20;
+    const float curveA = 0.2;
+    int curr = 0;
+    for (int j = 0; j <= numY; j++) {
+        for (int i = 0; i <= numX; i++) {
+            verticesVis[curr] = glm::vec3(
+                    float(i) / numX * lenU - offsetU,
+                    float(j) / numY * lenV - offsetV,
+                    0
+            );
+            vertices[curr] = glm::vec3(
+                    float(i) / numX * lenU - offsetU,
+                    float(j) / numY * lenV - offsetV + height,
+                    -3 + j * epsilon - curveA * sin(float(i) / numY * curveNum)
+            );
+            curr++;
+        }
+    }
+}
+
 void initSprings() {
     // horizontal
     for (int j = 0; j <= NUM_Y; j++) {
@@ -284,7 +311,8 @@ void init() {
     std::fill(verticesStatus.begin(), verticesStatus.end(), NORMAL);
     vertices.resize(POINTS_NUM);
     verticesVis.resize(POINTS_NUM);
-    initClothVerticesPos(vertices, NUM_X, NUM_Y);
+//    initClothVerticesPos(vertices, NUM_X, NUM_Y);
+    initCurveCloth(vertices, NUM_X, NUM_Y);
     indices.resize(NUM_X * NUM_Y * 2 * 3); // 三角形数量 * 3
     fillIndices(indices, NUM_X, NUM_Y);
 
@@ -431,8 +459,8 @@ void integrateExplicitEuler(float dT) {
         vertices[i] += dT * velocities[i];
         velocities[i] += forces[i] / MASS * dT;
 
-//        if (vertices[i].y < 0)
-//            vertices[i].y = 0;
+        if (vertices[i].y < 0)
+            vertices[i].y = 0;
     }
 //    velocities[0] = glm::vec3(0, 0, 0);
 //    velocities[POINTS_NUM - 1] = glm::vec3(0, 0, 0);
@@ -469,10 +497,10 @@ void dynamicInverse() {
         glm::vec3 deltaPos = vertices[springs[i].p1] - vertices[springs[i].p2];
         float distance = glm::length(deltaPos);
 //        if (distance > springs[i].restLenth) {
-        glm::vec3 move = (distance - springs[i].restLenth) / 2 * normalize_t(deltaPos);
-        // todo: 速度的变化，与长度的关系？？？
-        velocities[springs[i].p1] -= move;
-        velocities[springs[i].p2] += move;
+            glm::vec3 move = (distance - springs[i].restLenth) / 2 * normalize_t(deltaPos);
+            // todo: 速度的变化，与长度的关系？？？
+            velocities[springs[i].p1] -= move;
+            velocities[springs[i].p2] += move;
 //        }
     }
 }
